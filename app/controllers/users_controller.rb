@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       @user.errors.full_messages.each do |msg|
         flash_msg << msg
       end
-      flash[:error] = flash_msg.join('<br>')
+      flash[:danger] = flash_msg.join('<br>')
       redirect_to signup_url
     end
   end
