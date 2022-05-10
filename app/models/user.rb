@@ -9,4 +9,11 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+
+  private
+
+  # メールアドレスをすべて小文字にする
+  def downcase_email
+    self.email = email.downcase
+  end
 end
