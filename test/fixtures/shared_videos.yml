@@ -1,1 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+video-1:
+  url: https://youtu.be/4LfJnj66HVQ
+  user: michael
+
+video-2:
+  url: https://youtu.be/4LfJnj66asE
+  user: michael
+
+video-3:
+  url: https://youtu.be/4Lssnj6aaasE
+  user: michael

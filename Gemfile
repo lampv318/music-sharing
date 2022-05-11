@@ -76,6 +76,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem 'minitest'
+  gem 'rails-controller-testing'
 end
 
 group :production do
