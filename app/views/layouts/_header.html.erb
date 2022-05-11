@@ -4,7 +4,7 @@
       <ul class="navbar-nav me-auto mb-lg-0" style="margin-left: 50px ">
         <li class="nav-item">
           <%= link_to root_path, id: "logo", style: 'color: gray' do %>
-            <img src="logo.png" alt="logo" width="30px" height="30px">
+            <%= image_tag 'logo.png', alt: "logo", width: "30px", height: "30px" %>
             My Video
           <% end %>
         </li>

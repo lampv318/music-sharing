@@ -3,3 +3,11 @@
 <p class="text-center" style="font-size: 30px; color: #000033; margin-top: 30px" id="shared_video">Shared Video</p><br>
 
 <%= render @shared_videos %>
+
+<div class="row justify-content-md-center">
+  <div class="col col-lg-2">
+    <div class="digg_pagination">
+      <%= paginate @shared_videos %>
+    </div>
+  </div>
+</div>
