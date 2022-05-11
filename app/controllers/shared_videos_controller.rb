@@ -5,13 +5,16 @@ class SharedVideosController < ApplicationController
   end
 
   def create
-    unless VideoEmbedUrlGenerator.new(params[:url]).valid?
-      flash[:danger] = "Invalid URL"
-
-      return redirect_to root_url
+    shared_video = current_user.shared_videos.new(url: params[:url])
+    if shared_video.save
+      flash[:success] = "Share Youtube Video Successfully"
+    else
+      flash_msg = []
+      shared_video.errors.full_messages.each do |msg|
+        flash_msg << msg
+      end
+      flash[:danger] = flash_msg.join(' & ')
     end
-
-    current_user.shared_videos.create(url: params[:url]) ? flash[:success] = "Share Youtube Video Successfully" : flash[:danger] = "Somthing Went Wrong !"
 
     redirect_to root_url
   end
