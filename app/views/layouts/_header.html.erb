@@ -1,9 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-lg-0" style="margin-left: 50px ">
         <li class="nav-item">
-          <%= link_to "My Video", root_path, id: "logo" %>
+          <%= link_to root_path, id: "logo", style: 'color: gray' do %>
+            <img src="logo.png" alt="logo" width="30px" height="30px">
+            My Video
+          <% end %>
         </li>
       </ul>
       <div class="d-flex">
