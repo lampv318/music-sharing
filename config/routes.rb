@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :users
   resources :shared_videos, only: %i( index new create )
 
+  get "/*page" => "home#show"
   root to: "home#index"
 end
