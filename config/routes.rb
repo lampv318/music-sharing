@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   resources :users
+  resources :shared_videos, only: %i( index new create )
 
   root to: "home#index"
 end
