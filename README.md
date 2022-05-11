@@ -1,24 +1,34 @@
-# README
+# MY VIDEO PROJECT WITH BOOTSTRAP5
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Clone.
 
-Things you may want to cover:
+```
+git@github.com:lampv318/my_video.git
+```
 
-* Ruby version
+## Required middleware.
 
-* System dependencies
+#### ruby 3.0.3
+#### Rails 7.0.3
+#### Mysql 5.x, 8.x
+#### NPM 6.x
+#### BOOTSTRAP5
 
-* Configuration
+## Set up
 
-* Database creation
+```
+bundle install --path .bundle
+bundle exec rails db:migrate
+```
 
-* Database initialization
+## Run server
 
-* How to run the test suite
+```
+./bin/dev
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Run test
 
-* Deployment instructions
-
-* ...
+```
+bundle exec rails test test/
+```
