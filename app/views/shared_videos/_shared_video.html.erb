@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row justify-content-md-center" style="margin-bottom: 20px">
+    <div class="col col-lg-5">
+      <%= raw youtube_iframe_for(shared_video) %>
+    </div>
+    <div class="col-lg-5">
+      <div class="row">
+        <div class="col-md-8">
+          <h4>Video Title</h4>
+          shared by: <%= shared_video.user.email %>
+        </div>
+        <div class="col-md-4">
+          <a
+            class="btn btn-outline-success m-1"
+            href="#!"
+            role="button"
+          ><i class="bi bi-hand-thumbs-up"></i
+          ></a>
+          <a
+            class="btn btn-outline-success m-1"
+            href="#!"
+            role="button"
+          ><i class="bi bi-hand-thumbs-down"></i
+          ></a>
+        </div>
+      </div>
+      90 <i class="bi bi-hand-thumbs-up-fill"></i>
+      11 <i class="bi bi-hand-thumbs-down-fill"></i>
+      <br>
+      Description:
+      <br>
+      Párrafo de texto aleatorio: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </div>
+  </div>
+</div>

@@ -11,8 +11,8 @@ class VideoEmbedUrlGenerator
 
   def construct_iframe
     '<iframe '\
-      'width="640" '\
-      'height="480" '\
+      'width=100% '\
+      'height=300px '\
       'frameborder="0" '\
       'allow="autoplay; fullscreen" '\
       'allowfullscreen, '\

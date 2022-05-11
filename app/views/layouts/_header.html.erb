@@ -16,10 +16,10 @@
               <p class="text-center" style="margin-top: 2px">welcome: <%= "#{current_user.email}" %></p>
             </li>
             <li class="nav-link">
-              <%= link_to "Share Video", new_shared_video_path, class: 'btn btn-outline-success', 'data-bs-toggle': :modal, 'data-bs-target': "#staticBackdrop" %>
+              <%= link_to "Share Video", '#', class: 'btn btn-outline-success', 'data-bs-toggle': :modal, 'data-bs-target': "#staticBackdrop" %>
               <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
-                  <%= form_for(current_user.shared_videos.new, local: true) do |f| %>
+                  <%= form_with(url: shared_videos_path, local: true, method: :post) do |f| %>
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Share a Youtube Video</h5>
@@ -28,10 +28,10 @@
                       <div class="modal-body">
                         <div class="row justify-content-md-center">
                           <div class="col col-lg-2">
-                            <%= f.label :link, 'Youtube URL'%>
+                            <%= f.label :url, 'Youtube URL'%>
                           </div>
                           <div class="col-md-8">
-                            <%= f.text_field :link, class: 'form-control', placeholder: "" %>
+                            <%= f.text_field :url, class: 'form-control', placeholder: "" %>
                           </div>
                         </div>
                       </div>

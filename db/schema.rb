@@ -13,8 +13,7 @@
 ActiveRecord::Schema[7.0].define(version: 2022_05_10_173040) do
   create_table "shared_videos", charset: "utf8mb4", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "link", null: false
-    t.string "name", null: false
+    t.string "url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
