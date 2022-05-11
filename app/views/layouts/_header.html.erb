@@ -3,12 +3,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">My Video</a>
+          <%= link_to "My Video", root_path, id: "logo" %>
         </li>
       </ul>
       <div class="d-flex">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <% if logged_in? %>
+<!--            <li class="align-text-center">-->
+              <%#= link_to "Wellcome: #{current_user.email}", class: "nav-link disabled", tabindex: "-1" %>
+<!--            </li>-->
+            <li class="nav-link">
+              <p class="text-center" style="margin-top: 2px">wellcome: <%= "#{current_user.email}" %></p>
+            </li>
             <li class="nav-link">
               <%= link_to "Share Video", '#', class: 'btn btn-outline-success' %>
             </li>
