@@ -51,5 +51,5 @@ test:
 production:
   <<: *default
   database: my_video_production
-  username: root
-  password:
+  username: my_video
+  password: <%= ENV["MY_VIDEO_DATABASE_PASSWORD"] %>
