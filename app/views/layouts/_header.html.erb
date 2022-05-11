@@ -10,7 +10,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <% if logged_in? %>
             <li class="nav-link">
-              <%= link_to "Share Video", login_path, class: 'btn btn-outline-success' %>
+              <%= link_to "Share Video", '#', class: 'btn btn-outline-success' %>
             </li>
             <li class="nav-link">
               <%= button_to "Log out", logout_path, method: :delete, class: 'btn btn-outline-success' %>

@@ -13,13 +13,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Create Account Successfully"
+      log_in @user
       redirect_to root_url
     else
       flash_msg = []
       @user.errors.full_messages.each do |msg|
         flash_msg << msg
       end
-      flash[:danger] = flash_msg.join('<br>')
+      flash[:danger] = flash_msg.join(' & ')
       redirect_to signup_url
     end
   end
