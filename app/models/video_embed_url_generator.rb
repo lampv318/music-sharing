@@ -2,11 +2,9 @@ class VideoEmbedUrlGenerator
   REGEX_ID = %r{(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{8,11})}.freeze
 
   attr_accessor :url
-  attr_accessor :errors
 
   def initialize(url)
     @url = url
-    @errors = []
   end
 
   def construct_iframe
@@ -25,11 +23,7 @@ class VideoEmbedUrlGenerator
   end
 
   def valid?
-    unless video_id
-      @errors << 'Invalid URL'
-
-      return false
-    end
+    return false unless video_id
 
     true
   end
