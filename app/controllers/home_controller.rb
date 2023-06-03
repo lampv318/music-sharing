@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
-	def index; end
+  def index
+    @shared_videos = SharedVideo.all
+  end
 
   def show
     render file: "public/404.html", status: :not_found unless valid_page?
