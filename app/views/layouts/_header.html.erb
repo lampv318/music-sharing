@@ -13,7 +13,32 @@
               <p class="text-center" style="padding-top: 7px"><%= "#{current_user.email}" %></p>
             </li>
             <li class="nav-link">
-              <%= link_to "Share Video", '#', class: 'btn btn-outline-success' %>
+              <%= link_to "Share Video", new_shared_video_path, class: 'btn btn-outline-success', 'data-bs-toggle': :modal, 'data-bs-target': "#staticBackdrop" %>
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <%= form_for(current_user.shared_videos.new, local: true) do |f| %>
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Share a Youtube Video</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="row justify-content-md-center">
+                          <div class="col col-lg-2">
+                            <%= f.label :link, 'Youtube URL', style: 'padding-top: 6px' %>
+                          </div>
+                          <div class="col-md-8">
+                            <%= f.text_field :link, class: 'form-control', placeholder: "" %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <%= f.submit "Share", class: "btn btn-outline-success"%>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
             </li>
             <li class="nav-link">
               <%= button_to "Log out", logout_path, method: :delete, class: 'btn btn-outline-success' %>
