@@ -18,7 +18,7 @@
               <%= link_to "Share Video", '#', class: 'btn btn-outline-success', 'data-bs-toggle': :modal, 'data-bs-target': "#staticBackdrop" %>
               <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
-                  <%= form_with(url: shared_videos_path, local: true, method: :post) do |f| %>
+                  <%= form_with(url: shared_videos_path, model: SharedVideo.new, local: true, method: :post) do |f| %>
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Share a Youtube Video</h5>
@@ -27,10 +27,19 @@
                       <div class="modal-body">
                         <div class="row justify-content-md-center">
                           <div class="col col-lg-2">
+                            <%= f.label :title, 'Title', style: 'padding-top: 6px' %>
+                          </div>
+                          <div class="col-md-8">
+                            <%= f.text_field :title, class: 'form-control', placeholder: "Input Title", required: true %>
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="row justify-content-md-center">
+                          <div class="col col-lg-2">
                             <%= f.label :url, 'Youtube URL', style: 'padding-top: 6px' %>
                           </div>
                           <div class="col-md-8">
-                            <%= f.text_field :url, class: 'form-control', placeholder: "" %>
+                            <%= f.text_field :url, class: 'form-control', placeholder: "Input Youtube URL", required: true %>
                           </div>
                         </div>
                       </div>

@@ -11204,8 +11204,8 @@
     },
     received(data) {
       $("#popup-notification").modal("show");
-      $("#by-user").html(data.message);
-      $("#title").html(data.message);
+      $("#by-user").html(data.by_user_email);
+      $("#title").html(data.title);
     }
   });
 })();

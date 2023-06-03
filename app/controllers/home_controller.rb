@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
     @shared_videos = SharedVideo.all.order(id: "DESC") .page params[:page]
+    @share_video = SharedVideo.new
   end
 
   def show
