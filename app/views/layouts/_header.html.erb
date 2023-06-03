@@ -3,14 +3,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">My Video</a>
+          <a class="nav-link" href="/">My Video</a>
         </li>
       </ul>
       <div class="d-flex">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <% if logged_in? %>
             <li class="nav-link">
-              <%= link_to "Share Video", login_path, class: 'btn btn-outline-success' %>
+              <p class="text-center" style="padding-top: 7px"><%= "#{current_user.email}" %></p>
+            </li>
+            <li class="nav-link">
+              <%= link_to "Share Video", '#', class: 'btn btn-outline-success' %>
             </li>
             <li class="nav-link">
               <%= button_to "Log out", logout_path, method: :delete, class: 'btn btn-outline-success' %>
