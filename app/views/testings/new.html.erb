@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Speech API Example 2</title>
+</head>
+<body>
+    <button id="button" onclick="toggleStartStop()"></button>
+    <div style="border:dotted;padding:10px">
+      <span id="final_span"></span>
+      <span id="interim_span" style="color:grey"></span>
+    </div>
+
+    <script type="text/javascript">
+      let recognizing;
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = "ja-JP";
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      reset();
+      recognition.onend = reset;
+
+      recognition.onresult = (event) => {
+        let final = "";
+        let interim = "";
+        for (let i = 0; i < event.results.length; ++i) {
+          if (event.results[i].isFinal) {
+            final += event.results[i][0].transcript + "<br>";
+          } else {
+            interim += event.results[i][0].transcript;
+          }
+        }
+        final_span.innerHTML = final;
+        interim_span.innerHTML = interim;
+      }
+
+      function reset() {
+        recognizing = false;
+        button.innerHTML = "Click to Speak";
+      }
+
+      function toggleStartStop() {
+        if (recognizing) {
+          recognition.stop();
+          reset();
+        } else {
+          recognition.start();
+          recognizing = true;
+          button.innerHTML = "Click to Stop";
+          final_span.innerHTML = "";
+          interim_span.innerHTML = "";
+        }
+      }
+  </script>
+</body>
+</html>
