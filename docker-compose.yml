@@ -1,0 +1,38 @@
+version: '3.3'
+volumes:
+  gem_dir:
+  mysql_dir:
+  public_data:
+  tmp_data:
+  log_data:
+  vendor:
+  redis:
+services:
+  db:
+    build:
+      context: .
+      dockerfile: ./docker/db/Dockerfile
+    volumes:
+      - mysql_dir:/var/lib/mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/rails/Dockerfile
+    depends_on:
+      - db
+    command: /bin/sh -c "mkdir -p tmp/pids && rm -f tmp/pids/server.pid && bundle install && bundle exec pumactl start"
+    environment:
+      RAILS_ENV: ${RAILS_ENV:-development}
+    volumes:
+      - .:/app
+      - public_data:/app/public
+      - tmp_data:/app/tmp
+      - log_data:/app/log
+      - vendor:/app/vendor
+      - gem_dir:/usr/local/bundle
+    ports:
+      - 3000:3000
+  redis:
+    image: redis:6.2-alpine

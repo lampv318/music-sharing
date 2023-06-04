@@ -4,22 +4,22 @@
 #   gem install mysql2
 #
 # Ensure the MySQL gem is defined in your Gemfile
-#   gem "mysql2"
+#   gem 'mysql2'
 #
 # And be sure to use new-style password hashing:
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: mysql2
+  adapter: <%= ENV['DB_ADAPTER'] ||= "mysql2" %>
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password:
-  socket: /tmp/mysql.sock
 
 development:
   <<: *default
   database: music_sharing_development
+  host: <%= ENV['DB_HOST'] || 'db' %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,6 +27,7 @@ development:
 test:
   <<: *default
   database: music_sharing_test
+  host: db
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -43,13 +44,19 @@ test:
 # URL environment variable explicitly:
 #
 #   production:
-#     url: <%= ENV["MY_APP_DATABASE_URL"] %>
+#     url: <%= ENV['MY_APP_DATABASE_URL'] %>
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+staging:
+  <<: *default
+  host: <%= ENV['DB_HOST'] || 'db' %>
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
 production:
   <<: *default
-  database: music_sharing_production
-  username: music_sharing
-  password: <%= ENV["MY_VIDEO_DATABASE_PASSWORD"] %>
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
