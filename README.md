@@ -249,8 +249,14 @@ $ docker-compose up
 # Usage
 
 - Register, Login
-- Share a video
-- Notification 
+
+![Screenshot 2023-06-06 at 01 19 43](https://github.com/lampv318/music-sharing/assets/22747775/2da3f2d0-b961-43c9-8b7d-01bab6356c00)
+
+
+- Share a video or receive notification from other user
+
+![Screen Recording 2023-06-06 at 01 13 19](https://github.com/lampv318/music-sharing/assets/22747775/8cdea3b0-3a57-4dad-bb3b-2a82209a2612)
+
 
 # Troubleshooting
 
