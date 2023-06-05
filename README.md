@@ -233,9 +233,26 @@ coverage
 
 ![Screenshot 2023-06-06 at 00 02 26](https://github.com/lampv318/music-sharing/assets/22747775/afebfdb7-5b7c-427a-8367-140ab844f407)
 
+# Docker Deployment
+
+project use docker-compose to build run server
+docker-compose includes 3 containers
+- mysql
+- rails
+- redis
+
+Run Command
+```
+$ docker-compose up
+```
+
 # Usage
 
+- Register, Login
+- Share a video
+- Notification 
 
+# Troubleshooting
 
 
 
