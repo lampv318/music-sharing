@@ -1,24 +1,41 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Launch
+## for local
+### required
 
-Things you may want to cover:
+- Ruby 3.1.1
+- Rails 7.0.3
+- Mysql 5.7
+- Redis
 
-* Ruby version
+### set up
 
-* System dependencies
+*start rails server*
+```bash
+$ bundle install --path .bundle
+$ npm install
+$ bundle exec rails db:migrate
+$ bundle exec rails assets:precompile
+$ bundle exec rails server
+```
 
-* Configuration
+*start redis server*
 
-* Database creation
+```
+$ redis-server
+```
+* local server
 
-* Database initialization
 
-* How to run the test suite
+## for docker
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ docker-compose up
+```
+# Test case
 
-* Deployment instructions
+### Model
+### Controller 
+### Integration
 
-* ...
+
