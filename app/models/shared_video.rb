@@ -5,7 +5,7 @@ class SharedVideo < ApplicationRecord
   validates :url, presence: true
   validates :title, presence: true
 
-  after_create_commit :send_notification
+  after_create :send_notification
 
   def send_notification
     NotificationBroadcastJob.perform_later(title, user.email)
