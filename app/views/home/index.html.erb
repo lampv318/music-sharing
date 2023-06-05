@@ -1,23 +1,25 @@
 <% provide(:title, "Home") %>
 <p class="text-center" style="font-size: 30px; color: #000033; margin-top: 30px" id="shared_video">Shared Video</p><br>
 
-<div class="modal fade" id="popup-notification" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Notification: A newly video is shared</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <h5>Title:</h5>
-        <div id="title"></div>
-        <hr>
-        <h5>By User:</h5>
-        <div id="by-user"></div>
+<% if logged_in? %>
+  <div class="modal fade" id="popup-notification" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Notification: A new video is shared</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h5>Title:</h5>
+          <div id="title"></div>
+          <hr>
+          <h5>By User:</h5>
+          <div id="by-user"></div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
 
 <%= render @shared_videos %>
 
