@@ -75,4 +75,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "rspec-rails"
+  gem 'shoulda-matchers'
+  gem 'simplecov'
+  gem 'shoulda-callback-matchers'
+  gem 'factory_bot_rails'
 end
