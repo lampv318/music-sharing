@@ -10,6 +10,14 @@ A project with the main purpose of making it possible for people to share Youtub
 - Viewing a list of shared videos
 - Real-time notifications for new video shares: When a user shares a new video, other logged-in users should receive a real-time notification about the newly shared video.
 
+Deploy URL:
+
+https://music-sharing-1.herokuapp.com/
+
+sample account1: test@test.com / 123456
+
+sample account2: test1@test.com / 123456
+
 # Required 
 
 - *Framework*
@@ -105,6 +113,10 @@ Visit http://localhost:3000
 
 - note: required redis-server is running
 
+sample account1: test@test.com / 123456
+
+sample account2: test1@test.com / 123456
+
 ## For docker
 
 ```
@@ -114,6 +126,9 @@ $ docker-compose up
 Visit http://0.0.0.0:3000/
 ( when server is started, need to click create database and migrate on browser ) 
 
+sample account1: test@test.com / 123456
+
+sample account2: test1@test.com / 123456
 
 ## Testing 
 
@@ -235,13 +250,12 @@ coverage
 
 # Docker Deployment
 
-project use docker-compose to build run server
-docker-compose includes 3 containers
+project use docker-compose to build run server, docker-compose includes 3 containers
 - mysql
 - rails
 - redis
 
-Run Command
+Run Command to serve server
 ```
 $ docker-compose up
 ```
@@ -253,12 +267,14 @@ $ docker-compose up
 ![Screenshot 2023-06-06 at 01 19 43](https://github.com/lampv318/music-sharing/assets/22747775/2da3f2d0-b961-43c9-8b7d-01bab6356c00)
 
 
-- Share a video or receive notification from other user
+- Share a video and make other user receive the notification
 
 ![Screen Recording 2023-06-06 at 01 13 19](https://github.com/lampv318/music-sharing/assets/22747775/8cdea3b0-3a57-4dad-bb3b-2a82209a2612)
 
 
 # Troubleshooting
+
+- when server is started by docker, need to click create database and migrate on browser 
 
 
 
